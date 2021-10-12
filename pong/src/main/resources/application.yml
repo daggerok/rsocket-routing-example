@@ -1,0 +1,27 @@
+spring.output.ansi.enabled: always
+
+io.rsocket.routing.client:
+  route-id: 55555555-5555-5555-5555-555555555555
+  service-name: pong
+  tags:
+    INSTANCE_NAME: pong5
+  brokers:
+  - tcp:
+      host: localhost
+      port: 8001
+logging:
+  level:
+    io.rsocket.routing.client: INFO
+---
+spring.config.activate.on-profile: server
+
+pong:
+  client: false
+---
+spring.config.activate.on-profile: pong6
+
+io.rsocket.routing.client:
+  route-id: 66666666-6666-6666-6666-666666666666
+  service-name: pong
+  tags:
+    INSTANCE_NAME: pong6

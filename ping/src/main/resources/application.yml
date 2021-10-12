@@ -1,0 +1,34 @@
+spring.output.ansi.enabled: always
+
+io.rsocket.routing.client:
+  route-id: 33333333-3333-3333-3333-333333333333
+  service-name: ping
+  tags:
+    INSTANCE_NAME: ping3
+  address:
+    pong-rc:
+      service_name: pong
+  brokers:
+  - tcp:
+      host: localhost
+      port: 8001
+server:
+  port: 0
+#debug: true
+#---
+#spring.config.activate.on-profile: ping4
+#
+#io.rsocket.routing.client:
+#  route-id: 44444444-4444-4444-4444-444444444444
+#  tags:
+#    INSTANCE_NAME: ping4
+#ping:
+#  request-type: request_response
+#---
+#spring.config.activate.on-profile: broker2
+#
+#io.rsocket.routing.client:
+#    brokers:
+#      - tcp:
+#          host: localhost
+#          port: 8002
